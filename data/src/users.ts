@@ -16,7 +16,7 @@ const createUser = function(overwrites: Partial<User> = {}): User {
   const {
     avatar = faker.image.avatar(),
     birthday = faker.date.birthdate(),
-    email = faker.internet.email(),
+    email = faker.internet.email().toLowerCase(),
     firstName = faker.person.firstName(),
     lastName = faker.person.lastName(),
     password = randomUUID(),  // Just for test purposes
