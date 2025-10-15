@@ -1,8 +1,9 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 const app = require('./app');
 // TODO: get this values through env vars
 const port = process.env.PORT || 3300;
-const uri = 'mongodb://localhost:27017/app';
+const uri = process.env.MONGO_DB_URI;
 
 Promise
   .resolve(mongoose.connect(uri))

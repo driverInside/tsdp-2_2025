@@ -1,9 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
-
-const userSchema = new mongoose.Schema({});
-const Users = mongoose.model('User', userSchema);
+const Users = require('../models/users');
 
 router.get('/', async (_, res) => {
   const users = await Users.find({});
@@ -30,5 +28,11 @@ router.get('/:id', async (req, res) => {
   }
   return res.status
 });
+
+// Tarea 14.
+// Considerar: códigos http, errores
+router.post('/', async () => {});
+router.put('/:id', async () => {});
+router.delete('/:id', async () => {});
 
 module.exports = router;
