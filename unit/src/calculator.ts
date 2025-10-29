@@ -1,5 +1,10 @@
+import Logger from "./utils/logger";
+
 class Calculator {
-  constructor() {}
+  logger: Logger;
+  constructor(logger: Logger) {
+    this.logger = logger;
+  }
 
   sum(a: number, b: number): number {
     return a + b;
@@ -7,9 +12,10 @@ class Calculator {
 
   divide(a: number, b: number): number {
     if(b === 0) {
-      console.error('No se puede dividir por cero');
+      this.logger.error('No se puede dividir por cero');
       throw new Error('División por cero');
     }
+
     return a / b;
   }
 }
