@@ -29,4 +29,18 @@ describe('Calculator class', () => {
 
     expect(t).toThrow();
   });
+
+  it('should log an error when divide by zero', () => {
+    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  
+    const a = 10;
+    const b = 0;
+
+    const t = () => {
+      calculator.divide(a, b);
+    }
+
+    expect(t).toThrow();
+    expect(consoleSpy).toHaveBeenCalledWith('No se puede dividir por cero');
+  });
 });
