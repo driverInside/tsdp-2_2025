@@ -1,10 +1,22 @@
 import { User } from "./types/user";
+import DB from "./db";
 
 class UserRepository {
-  constructor () {}
+  db: DB;
+  // Dependency injection
+  constructor (db: DB) {
+    this.db = db;
+  }
 
-  getUserByNSS(nss: string): User {
+  getUserByNSS(nss: number): User | undefined {
+    const user = this.db.getByNSS(nss);
 
+    return user;
+  }
+
+  getAll(): User[] {
+    const users = this.db.getAllUsers();
+    return users;
   }
 }
 
